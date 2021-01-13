@@ -3,6 +3,7 @@ const initialState = {
     { id: 1, description: "first blood", isDone: false },
     { id: 2, description: "pentakill", isDone: false },
   ],
+  y: "all",
 };
 
 const reducer = (state = initialState, action) => {
@@ -35,6 +36,11 @@ const reducer = (state = initialState, action) => {
             ? { ...el, description: action.payload.edited }
             : el
         ),
+      };
+    case "FILTER_TASK":
+      return {
+        ...state,
+        y: action.payload,
       };
     default:
       return state;

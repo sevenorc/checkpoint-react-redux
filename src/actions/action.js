@@ -25,3 +25,10 @@ export const editTask = (x) => {
     payload: x,
   };
 };
+
+export const filterTask = (x) => {
+  return {
+    type: "FILTER_TASK",
+    payload: x,
+  };
+};

@@ -32,7 +32,7 @@ const ModalExample = (props) => {
 
   return (
     <div>
-      <Button color="danger" onClick={toggle}>
+      <Button color="warning" onClick={toggle}>
         Edit
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>

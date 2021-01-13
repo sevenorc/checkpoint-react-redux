@@ -2,25 +2,33 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addNewTask } from "../actions/action";
+import { Button } from "reactstrap";
 
 const AddTask = () => {
   const dispatch = useDispatch();
   const [input, setInput] = useState("");
-  const handleAdd = () => {
+  const handleAdd = (e) => {
+    e.preventDefault();
     dispatch(addNewTask(input));
     setInput("");
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="add a task"
-        onChange={(e) => setInput(e.target.value)}
-        value={input}
-      ></input>
-      <button onClick={handleAdd}>Add task</button>
-    </div>
+    <form className="one-task" onSubmit={handleAdd}>
+      <div className="task-element">
+        <input
+          type="text"
+          placeholder="add a task"
+          onChange={(e) => setInput(e.target.value)}
+          value={input}
+        ></input>
+      </div>
+      <div className="task-element">
+        <Button color="primary" onClick={handleAdd}>
+          Add task
+        </Button>
+      </div>
+    </form>
   );
 };
 
